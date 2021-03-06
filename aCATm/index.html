@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>aCatm</title>
+<link rel="stylesheet" href="./css/default.css" />
+<script type="text/javascript" src="./script/acatm.js"></script>
+<script>
+var query_result = getQueryString();
+canvasWidth = query_result["canvasWidth"];
+if((canvasWidth == "") || (canvasWidth == null)) {
+  canvasWidth = 480;
+}
+canvasHeight = query_result["canvasHeight"];
+if((canvasHeight == "") || (canvasHeight == null)) {
+  canvasHeight = 854;
+}
+//window.onload = function() {
+//}
+</script>
+</head>
+
+<body>
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <h2>一枚の写真</h2>
+    <a class="close" href="#">&times;</a>
+    <div align="center" class="content">
+      <iframe width="100%" height="100%" src="../slide_for_aCATm_1.0.3.html" frameborder="0" id="id_slide"></iframe>
+    </div>
+  </div>
+</div>
+<div id="popup2" class="overlay">
+  <div class="popup">
+    <h2>一本の動画</h2>
+    <a class="close" href="#">&times;</a>
+    <div align="center" class="content">
+      <iframe width="100%" height="100%" src="../video_for_aCATm_1.0.3.html" frameborder="0" id="id_video"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  var slide_iframe = document.getElementById("id_slide");
+  var video_iframe = document.getElementById("id_video");
+  if(w <= h) {
+    slide_iframe.width = w * 0.5;
+    slide_iframe.height = w * 0.75;
+    video_iframe.width = w * 0.5;
+    video_iframe.height = w * 0.75;
+  } else {
+    slide_iframe.width = h * 0.5;
+    slide_iframe.height = h * 0.75;
+    video_iframe.width = h * 0.5;
+    video_iframe.height = h * 0.75;
+  }
+</script>
+<!--div id="popupmenu" style="padding-top:8px;padding-bottom:8px;position:absolute;visibility:hidden;background-color:rgb(255,255,255);" class="menu">
+  &nbsp;<a href="" onclick="popupmenuHidden();window.open('../slide_for_aCATm.html','slide_for_aCATm','width=480,height=480,location=0,scrollbars=0');">One Photo</a>&nbsp;<br>
+  <hr class="hr1" />
+  &nbsp;<a href="" target="_blank" onclick="popupmenuHidden();window.open('../video_for_aCATm.html','video_for_aCATm','width=480,height=480,location=0,scrollbars=0');">One Video</a>&nbsp;<br>
+</div-->
+<div id="popupmenu" style="padding-top:8px;padding-bottom:8px;position:absolute;visibility:hidden;background-color:rgb(255,255,255);" class="menu">
+  &nbsp;<a href="https://android.shighe.com/ja/AlleyCatMemo/" target="_blank" onclick="popupmenuHidden();">Android 版のウェブサイト</a>&nbsp;<br>
+  <hr class="hr1" />
+  &nbsp;<a href="#popup1" onclick="popupmenuHidden();">一枚の写真</a>&nbsp;<br>
+  <hr class="hr1" />
+  &nbsp;<a href="#popup2" onclick="popupmenuHidden();">一本の動画</a>&nbsp;<br>
+</div>
+<canvas id="canvas" width="480" height="854"></canvas>
+<script>
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext('2d');
+  canvas.addEventListener('click', onClick, false);
+  canvas.addEventListener('mouseout', onOut, false);
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
+</script>
+<audio id="sound-file_0" preload="auto">
+  <source src="./audio/cat1a.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_1" preload="auto">
+  <source src="./audio/cat1b.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_2" preload="auto">
+  <source src="./audio/cat2.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_3" preload="auto">
+  <source src="./audio/cat3.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_4" preload="auto">
+  <source src="./audio/cat3a.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_5" preload="auto">
+  <source src="./audio/cat3b.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_6" preload="auto">
+  <source src="./audio/purring.mp3" type="audio/mp3">
+</audio>
+<audio id="sound-file_7" preload="auto">
+  <source src="./audio/cat_threat1.mp3" type="audio/mp3">
+</audio>
+</body>
+
+</html>
